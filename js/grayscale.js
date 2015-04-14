@@ -42,6 +42,7 @@ $(document).ready(function() {
     else {        
         // Wait until the video meta data has loaded
         // Not doing this anymore because the loadedmetadata callback fires before document is ready
+        // look in the index
         // $('#cont video').on('loadedmetadata',onLoadedMetadata);
     }
     
