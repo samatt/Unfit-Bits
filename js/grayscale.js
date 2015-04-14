@@ -39,55 +39,61 @@ $(document).ready(function() {
         // Run on resize too
         $(window).resize(adjSize);
     }
-    else {
-
-        
+    else {        
         // Wait until the video meta data has loaded
-        $('#cont video').on('loadedmetadata', function() {
-            console.log("HERE");
-            $('#init').css("display","none");
-            $('#cont').css("display", "block");
-            console.log($width + " : "+$height);
-            var $width, $height, // Width and height of screen
-                $vidwidth = this.videoWidth, // Width of video (actual width)
-                $vidheight = this.videoHeight, // Height of video (actual height)
-                $aspectRatio = $vidwidth / $vidheight; // The ratio the video's height and width are in
-                        
-            (adjSize = function() { // Create function called adjSize
-                            
-                $width = $(window).width(); // Width of the screen
-                $height = $(window).height(); // Height of the screen
-                console.log($width + " : "+$height);
-                $boxRatio = $width / $height; // The ratio the screen is in
-                            
-                $adjRatio = $aspectRatio / $boxRatio; // The ratio of the video divided by the screen size
-                            
-                // Set the container to be the width and height of the screen
-                $('#cont').css({'width' : $width+'px', 'height' : $height+'px'}); 
-                
-                $('div.intro .content .container .intro-body').css({'width' : $width+'px', 'height' : $height+'px'}); 
-                            
-                if($boxRatio < $aspectRatio) { // If the screen ratio is less than the aspect ratio..
-                    // Set the width of the video to the screen size multiplied by $adjRatio
-                    $vid = $('#cont video').css({'width' : $width*$adjRatio+'px'}); 
-                    // console.log("HERE") ;     
-                     // $('div.intro .content  .container .row .intro-body  ').css({'width' : $width*$adjRatio+'px', 'height' : $height*(1/$adjRatio)+'px'}); 
-                    // $('.intro-body').css({'width' : $width*$adjRatio+'px'}); 
-                } else {
-                    // Else just set the video to the width of the screen/container
-                    $vid = $('#cont video').css({'width' : $width+'px'});
-                    // $('div.content .intro .container .intro-body .row ').css({'width' : $width*$adjRatio+'px', 'height' : $height*(1/$adjRatio)+'px'}); 
-                }
-                                 
-            })(); // Run function immediately
-                        
-            // Run function also on window resize.
-            $(window).resize(adjSize);
-                        
-        });
+        // Not doing this anymore because the loadedmetadata callback fires before document is ready
+        // $('#cont video').on('loadedmetadata',onLoadedMetadata);
     }
     
 });
+
+var onLoadedMetadata  = function() {
+        console.log("HERE");
+        $('#init').css("display","none");
+        $('#cont').css("display", "block");
+        
+        var $width, $height, // Width and height of screen
+            $vidwidth = this.videoWidth, // Width of video (actual width)
+            $vidheight = this.videoHeight, // Height of video (actual height)
+            $aspectRatio = $vidwidth / $vidheight; // The ratio the video's height and width are in
+        
+        if( $(window).width() === undefined ){
+                console.log("undefined!")
+        }
+        
+        (adjSize = function() { // Create function called adjSize
+                        
+            
+            $width = $(window).width(); // Width of the screen
+            $height = $(window).height(); // Height of the screen
+
+            console.log($width + " : "+$height);
+            $boxRatio = $width / $height; // The ratio the screen is in
+                        
+            $adjRatio = $aspectRatio / $boxRatio; // The ratio of the video divided by the screen size
+                        
+            // Set the container to be the width and height of the screen
+            $('#cont').css({'width' : $width+'px', 'height' : $height+'px'}); 
+            
+            $('div.intro .content .container .intro-body').css({'width' : $width+'px', 'height' : $height+'px'}); 
+                        
+            if($boxRatio < $aspectRatio) { // If the screen ratio is less than the aspect ratio..
+                // Set the width of the video to the screen size multiplied by $adjRatio
+                $vid = $('#cont video').css({'width' : $width*$adjRatio+'px'}); 
+                 // $('div.intro .content  .container .row .intro-body  ').css({'width' : $width*$adjRatio+'px', 'height' : $height*(1/$adjRatio)+'px'}); 
+                // $('.intro-body').css({'width' : $width*$adjRatio+'px'}); 
+            } else {
+                // Else just set the video to the width of the screen/container
+                $vid = $('#cont video').css({'width' : $width+'px'});
+                // $('div.content .intro .container .intro-body .row ').css({'width' : $width*$adjRatio+'px', 'height' : $height*(1/$adjRatio)+'px'}); 
+            }
+                             
+        })(); // Run function immediately
+                    
+        // Run function also on window resize.
+        $(window).resize(adjSize);
+                    
+    }
 
 // jQuery to collapse the navbar on scroll
 $(window).scroll(function() {
