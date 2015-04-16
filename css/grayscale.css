@@ -164,7 +164,7 @@ a:focus {
     display: table;
     width: 100%;
     height: 100%;
-    padding: 100px 0;
+    /*padding: 100px 0;*/
     text-align: center;
     /*position: absolute;*/
     /*top: 0;*/
@@ -193,7 +193,7 @@ a:focus {
     -o-background-size: cover;
 }
 
-.pendulum {
+.bike {
     display: table;
     width: 100%;
     height: 100%;
@@ -201,6 +201,22 @@ a:focus {
     text-align: center;
     color: #fff;
     background: url(../img/bike_blue_small.jpg) no-repeat bottom center scroll;
+    background-color: #FFF;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;
+}
+
+.pendulum {
+    display: table;
+    width: 100%;
+    height: 100%;
+    padding: 100px 0;
+    text-align: center;
+    font-size: 10px;
+    color: #fff;
+    background: url(../img/pendulum.jpg) no-repeat bottom center scroll;
     background-color: #FFF;
     -webkit-background-size: cover;
     -moz-background-size: cover;
@@ -472,6 +488,12 @@ body {
     /*width: auto;*/
     
 }
+
+.video{
+    position: relative;
+    width: 80%;
+    height:auto;
+}
 /*r margin = {top: 20, right: 30, bottom: 30, left: 40},*/
 .bar {
  fill: rgba(255,255,255,.6); 
@@ -498,3 +520,4 @@ body {
 .x.axis path {
   display: none;
 }
+

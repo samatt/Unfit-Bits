@@ -48,6 +48,8 @@
     <!-- Custom Theme JavaScript -->
     <script src="js/grayscale.js"></script>
 
+    <script src="//f.vimeocdn.com/js/froogaloop2.min.js"></script>
+
 
 </head>
 
@@ -73,10 +75,16 @@
                         <a href="#page-top"></a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="#about">About</a>
+                        <a class="page-scroll" href="#metronome">Metronome</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="#download">Download</a>
+                        <a class="page-scroll" href="#bike">Bike</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#pendulum">Pendulum</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#about">About</a>
                     </li>
                     <li>
                         <a class="page-scroll" href="#contact">Contact</a>
@@ -114,8 +122,8 @@
     <!-- Setting event here to avoid race condition -->
     <div id="cont" class="intro" style="display: none;">
         <video autoplay loop muted onloadedmetadata="onLoadedMetadata()">
-            <source src="video/fitbit_small.mp4" type="video/mp4" >
-            <source src="video/fitbit_small.webm" type="video/webm">
+            <source src="video/bike.mp4" type="video/mp4" >
+            <source src="video/bike.webm" type="video/webm">
         </video>
     
         <div class="content">
@@ -130,7 +138,7 @@
                                     A guide to <em>FitBit</em> spoofing
                                 </p>
 
-                                <a href="#about" class="btn btn-circle page-scroll">
+                                <a href="#metronome" class="btn btn-circle page-scroll">
                                     <i class="fa fa-angle-double-down animated"></i>
                                 </a>
                             </div>
@@ -139,9 +147,78 @@
                 </div>
         </div>
     </div>
+    
+    <section id="metronome" class="content-section text-center metronome">
+            <div class="container-fluid">
+            <div class="col-lg-8 col-lg-offset-2">
+                    <h2>Metronome</h2>
+            </div>
+            <div class="col-lg-4 ">
+                <p class="small-text">
+                    <em>Fit Bit Spoofing</em> provides a solution. This research project investigates several DIY Fitbit spoofing techniques enabling you to create walking datasets to qualify you for all the benefits of a high exercise lifestyle without actually having to share your personal data with your insurance company. 
+                    Our team of experts have conducted an in-depth FitBit Audit to understand how the Fitbit interprets data.  />
+                    With these simple techniques using everyday devices from your home, we show you how to spoof your walking dataset so that you can qualify for the best discounts. 
+                    These techniques can also be used to obsficate your actual behaviors to help you to keep your privacy intact.
+
+                </p>
+            </div>
+            <div class="col-lg-4 col-lg-offset-2">
+                <svg class="chart"></svg>
+            </div>
+            <div class="col-md-8 col-md-offset-2">
+                <a href="#bike" class="btn btn-circle page-scroll">
+                    <i class="fa fa-angle-double-down animated"></i>
+                </a>
+            </div>
+    </section>
 
 
-    <!-- About Section -->
+    <!-- Download Section -->
+    <section id="bike" class="content-section text-center bike">
+            <div class="container-fluid">
+                <div class="col-lg-8 col-lg-offset-2">
+                    <h2>Bicycle</h2>
+                </div>
+                <div class="col-md-8 col-md-offset-2">
+                    <!-- <iframe id="vimeo_player" src="https://player.vimeo.com/video/125114260?autoplay=1&loop=1&title=0&byline=0&portrait=0" width="500" height="281" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe> -->
+                    <video autoplay loop muted class="video">
+                        <source src="video/bike.mp4" type="video/mp4" >
+                        <source src="video/bike.webm" type="video/webm">
+                    </video>
+                </div>
+                <div class="col-md-8 col-md-offset-2">
+                    <a href="#pendulum" class="btn btn-circle page-scroll">
+                        <i class="fa fa-angle-double-down animated"></i>
+                    </a>
+                </div>
+        </div>
+    </section>
+
+
+    <!-- New Section-->
+    <section id="pendulum" class="content-section text-center pendulum">
+    <!-- <img width="768" height="432"src="../img/metronome_blue_light_small.jpg"> -->
+            <!-- <div id ="full"> -->
+            <div class="container-fluid">
+                <div class="col-lg-8 col-lg-offset-2">
+                    <h2>Pendulum</h2>
+                    <!-- <p class="btn btn-default btn-lg"> <br />Graph and images here </p> -->
+                    <!--  -->
+                    <!-- <p > Other Stuff </p>         -->
+                    <video autoplay loop muted class="video">
+                        <source src="video/pendulum.mp4" type="video/mp4" >
+                        <source src="video/pendulum.webm" type="video/webm">
+                    </video>
+                </div>
+                </div>
+            <div class="col-md-8 col-md-offset-2">
+                <a href="#about" class="btn btn-circle page-scroll">
+                    <i class="fa fa-angle-double-down animated"></i>
+                </a>
+            </div>
+    </section>
+
+        <!-- About Section -->
     <section id="about" class="container content-section">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2">
@@ -165,56 +242,13 @@
                 </p>
                 <!-- <img width="768" height="432"src="../img/dummy-graph.png"></img> -->
                 <div class="col-md-8 col-md-offset-5">
-                    <a href="#tecnhique2" class="btn btn-circle page-scroll">
+                    <a href="#contact" class="btn btn-circle page-scroll">
                         <i class="fa fa-angle-double-down animated"></i>
                     </a>
                 </div>
             </div>
 
         </div>
-    </section>
-
-    <!-- Download Section -->
-    <section id="tecnhique2" class="content-section text-center pendulum">
-            <div class="container-fluid">
-                <div class="col-lg-8 col-lg-offset-2">
-                    <h2>This is technique 2</h2>
-                </div>
-                <div class="col-lg-4 ">
-                    <p class="small-text">
-                        <em>Fit Bit Spoofing</em> provides a solution. This research project investigates several DIY Fitbit spoofing techniques enabling you to create walking datasets to qualify you for all the benefits of a high exercise lifestyle without actually having to share your personal data with your insurance company. 
-                        Our team of experts have conducted an in-depth FitBit Audit to understand how the Fitbit interprets data.  />
-                        With these simple techniques using everyday devices from your home, we show you how to spoof your walking dataset so that you can qualify for the best discounts. 
-                        These techniques can also be used to obsficate your actual behaviors to help you to keep your privacy intact.
-
-                    </p>
-                </div>
-                <div class="col-lg-4 col-lg-offset-2">
-                    <svg class="chart"></svg>
-                </div>
-                
-                
-                <div class="col-md-8 col-md-offset-2">
-                    <a href="#tecnhique3" class="btn btn-circle page-scroll">
-                        <i class="fa fa-angle-double-down animated"></i>
-                    </a>
-                </div>
-        </div>
-    </section>
-
-    <!-- New Section-->
-    <section id="tecnhique3" class="content-section text-center metronome">
-    <!-- <img width="768" height="432"src="../img/metronome_blue_light_small.jpg"> -->
-            <!-- <div id ="full"> -->
-            <div class="container-fluid">
-                <div class="col-lg-8 col-lg-offset-2">
-                    <h2>This is technique 3</h2>
-                    <p class="btn btn-default btn-lg"> <br />Graph and images here </p>
-                    <!--  -->
-                    <p > Other Stuff </p>        
-                </div>
-                </div>
-            <!-- </div> -->
     </section>
 
     <!-- Contact Section -->
@@ -238,7 +272,7 @@
     </section>
 
     <!-- Map Section -->
-    <div id="map"></div>
+    <!-- <div id="map"></div> -->
 
     <!-- Footer -->
     <footer>
