@@ -50,6 +50,7 @@ p {
 em{
     font-style: normal;
     color: #4ac1c0;
+    background: #fff;
 }
 
 @media(min-width:768px) {
@@ -494,6 +495,12 @@ body {
     width: 80%;
     height:auto;
 }
+
+.video-text{
+    position: relative;
+    width: 100%;
+    height:auto;
+}
 /*r margin = {top: 20, right: 30, bottom: 30, left: 40},*/
 .bar {
  fill: rgba(255,255,255,.6); 
@@ -507,8 +514,13 @@ body {
 }
 
 .small-text{
-    font-size: 18px;
+    font-size: 16px;
     text-align: left;
+    background: rgba(128,128,128,.2);
+    /*padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 10px;*/
+    padding: 20px
 }
 .axis path,
 .axis line {
@@ -521,3 +533,6 @@ body {
   display: none;
 }
 
+.fbcolor{
+    fill: rgba(74,193,192,.8);
+}

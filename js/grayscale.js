@@ -44,25 +44,22 @@ $(document).ready(function() {
             
             // Hide video
             $('video').hide();
+            $(".chart").hide();
             
         })(); // Run instantly
         
         // Run on resize too
         $(window).resize(adjSize);
     }
-    else {        
-        // Wait until the video meta data has loaded
-        // Not doing this anymore because the loadedmetadata callback fires before document is ready
-        // look in the index
-        // $('#cont video').on('loadedmetadata',onLoadedMetadata);
+    else {
+        //d3
+        graphParams.width = parseInt($(".chart").css("width").replace("px",""));
+        graphParams.height = parseInt($(".chart").css("height").replace("px",""));    
+        graphModule.start(graphParams);
     }
     
     // $(".chart").css('width', graphParams.width);
     // $(".chart").css('height',graphParams.height);
-    graphParams.width = parseInt($(".chart").css("width").replace("px",""));
-    graphParams.height = parseInt($(".chart").css("height").replace("px",""));
-    
-    graphModule.start(graphParams);
 
     var iframe = $('#vimeo_player')[0],
             player = $f(iframe),

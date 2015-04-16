@@ -5,7 +5,7 @@
 
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1 ">
     <meta name="description" content="">
     <meta name="author" content="">
 
@@ -63,14 +63,12 @@
                     <i class="fa fa-bars"></i>
                 </button>
                 <a class="navbar-brand page-scroll" href="#page-top">
-                    <i class="fa fa-play-circle"></i>  <em><span class="light">UN</em>FIT</span> BITS
+                    <i  class="fa fa-play-circle "></i>  <em style="background: rgba(0,0,0,0);"><span class="light" >UN</em>FIT</span> BITS
                 </a>
             </div>
 
-            <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse navbar-right navbar-main-collapse">
                 <ul class="nav navbar-nav">
-                    <!-- Hidden li included to remove active class from about link when scrolled up past about section -->
                     <li class="hidden">
                         <a href="#page-top"></a>
                     </li>
@@ -96,13 +94,13 @@
         <!-- /.container -->
     </nav>
 
-    <!-- This is -->
+    <!-- Intro - no video -->
     <header id ="init" class="intro">
         <div class="intro-body">
             <div class="container">
                 <div class="row">
                     <div class="col-md-8 col-md-offset-2">
-                        <h1 class="brand-heading"> <em>Un</em>fit Bits</h1>
+                        <h1 class="brand-heading"> <em style="background: rgba(0,0,0,0);">Un</em>fit Bits</h1>
                         <p class="intro-text"> Free your fitness from yourself. </br>
                             Earn insurance discounts!
                             </br>
@@ -118,7 +116,7 @@
         </div>
     </header>
     
-    <!-- <header class="intro"> -->
+    <!-- Intro -->
     <!-- Setting event here to avoid race condition -->
     <div id="cont" class="intro" style="display: none;">
         <video autoplay loop muted onloadedmetadata="onLoadedMetadata()">
@@ -131,15 +129,15 @@
                 <div class="row">
                     <div class="intro-body">
                             <div class="col-md-offset-3">
-                                <h1 class="brand-heading"> <em>Un</em>fit Bits</h1>
-                                <p class="intro-text"> Free your fitness from yourself. </br>
+                                <h1 class="brand-heading"> <em style="background: rgba(0,0,0,0);" >Un</em>fit Bits</h1>
+                                <p class="intro-text"> Free your <i>fitness data</i> from yourself. </br>
                                     Earn insurance discounts!
                                     </br>
                                     A guide to <em>FitBit</em> spoofing
                                 </p>
 
                                 <a href="#metronome" class="btn btn-circle page-scroll">
-                                    <i class="fa fa-angle-double-down animated"></i>
+                                    <i  class="fa fa-angle-double-down animated"></i>
                                 </a>
                             </div>
                         </div>
@@ -148,23 +146,58 @@
         </div>
     </div>
     
-    <section id="metronome" class="content-section text-center metronome">
-            <div class="container-fluid">
-            <div class="col-lg-8 col-lg-offset-2">
-                    <h2>Metronome</h2>
-            </div>
-            <div class="col-lg-4 ">
-                <p class="small-text">
-                    <em>Fit Bit Spoofing</em> provides a solution. This research project investigates several DIY Fitbit spoofing techniques enabling you to create walking datasets to qualify you for all the benefits of a high exercise lifestyle without actually having to share your personal data with your insurance company. 
-                    Our team of experts have conducted an in-depth FitBit Audit to understand how the Fitbit interprets data.  />
-                    With these simple techniques using everyday devices from your home, we show you how to spoof your walking dataset so that you can qualify for the best discounts. 
-                    These techniques can also be used to obsficate your actual behaviors to help you to keep your privacy intact.
+    <!-- Metronome -->
+    <section id="metronome" class="container content-section text-center metronome">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2">
+                        <h2>Metronome</h2>
+                </div>
+                <div class="col-md-6 ">
+                    <svg class="chart"></svg>
+                </div>
+                <div class="col-md-6 ">
+                    <p class="small-text">
+                        <em>Fit Bit Spoofing</em> provides a solution. This research project investigates several DIY Fitbit spoofing techniques enabling you to create walking datasets to qualify you for all the benefits of a high exercise lifestyle without actually having to share your personal data with your insurance company. 
+                        Our team of experts have conducted an in-depth FitBit Audit to understand how the Fitbit interprets data.  />
+                        With these simple techniques using everyday devices from your home, we show you how to spoof your walking dataset so that you can qualify for the best discounts. 
+                        These techniques can also be used to obsficate your actual behaviors to help you to keep your privacy intact.
 
-                </p>
+                    </p>
+                </div>
+                <div class="col-md-8 col-md-offset-2">
+                    <a href="#pendulum" class="btn btn-circle page-scroll">
+                        <i class="fa fa-angle-double-down animated"></i>
+                    </a>
+                </div>
+            </div>  
+    </section>
+
+    <!-- Pendulum -->
+    <section id="pendulum" class="container content-section text-center pendulum">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2">
+                    <h2>Pendulum</h2>
+                </div>
+                    <!-- <p class="btn btn-default btn-lg"> <br />Graph and images here </p> -->
+                    <!--  -->
+                    <!-- <p > Other Stuff </p>         -->
+                    <div class="col-md-6">
+                        <video autoplay loop muted class="video-text">
+                            <source src="video/pendulum.mp4" type="video/mp4" >
+                            <source src="video/pendulum.webm" type="video/webm">
+                        </video>
+                    </div>
+                    <div class="col-md-6">
+                        <p class="small-text">
+                            <em>Fit Bit Spoofing</em> provides a solution. This research project investigates several DIY Fitbit spoofing techniques enabling you to create walking datasets to qualify you for all the benefits of a high exercise lifestyle without actually having to share your personal data with your insurance company. 
+                            Our team of experts have conducted an in-depth FitBit Audit to understand how the Fitbit interprets data.  />
+                            With these simple techniques using everyday devices from your home, we show you how to spoof your walking dataset so that you can qualify for the best discounts. 
+                            These techniques can also be used to obsficate your actual behaviors to help you to keep your privacy intact.
+
+                        </p>
+                    </div>
             </div>
-            <div class="col-lg-4 col-lg-offset-2">
-                <svg class="chart"></svg>
-            </div>
+            
             <div class="col-md-8 col-md-offset-2">
                 <a href="#bike" class="btn btn-circle page-scroll">
                     <i class="fa fa-angle-double-down animated"></i>
@@ -172,8 +205,7 @@
             </div>
     </section>
 
-
-    <!-- Download Section -->
+    <!-- Bike -->
     <section id="bike" class="content-section text-center bike">
             <div class="container-fluid">
                 <div class="col-lg-8 col-lg-offset-2">
@@ -187,41 +219,17 @@
                     </video>
                 </div>
                 <div class="col-md-8 col-md-offset-2">
-                    <a href="#pendulum" class="btn btn-circle page-scroll">
+                    <a href="#about" class="btn btn-circle page-scroll">
                         <i class="fa fa-angle-double-down animated"></i>
                     </a>
                 </div>
         </div>
     </section>
 
-
-    <!-- New Section-->
-    <section id="pendulum" class="content-section text-center pendulum">
-    <!-- <img width="768" height="432"src="../img/metronome_blue_light_small.jpg"> -->
-            <!-- <div id ="full"> -->
-            <div class="container-fluid">
-                <div class="col-lg-8 col-lg-offset-2">
-                    <h2>Pendulum</h2>
-                    <!-- <p class="btn btn-default btn-lg"> <br />Graph and images here </p> -->
-                    <!--  -->
-                    <!-- <p > Other Stuff </p>         -->
-                    <video autoplay loop muted class="video">
-                        <source src="video/pendulum.mp4" type="video/mp4" >
-                        <source src="video/pendulum.webm" type="video/webm">
-                    </video>
-                </div>
-                </div>
-            <div class="col-md-8 col-md-offset-2">
-                <a href="#about" class="btn btn-circle page-scroll">
-                    <i class="fa fa-angle-double-down animated"></i>
-                </a>
-            </div>
-    </section>
-
-        <!-- About Section -->
+    <!-- About  -->
     <section id="about" class="container content-section">
         <div class="row">
-            <div class="col-lg-8 col-lg-offset-2">
+            <div class=".col-md-6 .col-md-offset-3">
                 <h2 class="text-center" >About</h2>
                 <p>Is your job preventing you from qualifying for health insurance discounts? 
                     <br/>
@@ -251,7 +259,7 @@
         </div>
     </section>
 
-    <!-- Contact Section -->
+    <!-- Contact  -->
     <section id="contact" class="container content-section text-center">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2">
