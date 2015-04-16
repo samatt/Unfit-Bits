@@ -4,6 +4,16 @@
  * For details, see http://www.apache.org/licenses/LICENSE-2.0.
  */
 
+var graphParams = {
+    w : 700,
+    h : 371,
+    file : "data/data.tsv",
+    files : ['data/data.tsv','data/data-alt.tsv'],
+    index :0,    
+    selector : ".chart",
+    f : " "
+  }
+
 $(document).ready(function() {
     
     // IE detect
@@ -25,7 +35,8 @@ $(document).ready(function() {
             
             // Resize image accordingly
             $('#init').css({
-                'background-image' : 'url(video/poster.jpg)', 
+                'display' : 'block',
+                'background-image' : 'url(img/poster.png)', 
                 'background-size' : 'cover', 
                 'width' : $width+'px', 
                 'height' : $height+'px'
@@ -46,6 +57,13 @@ $(document).ready(function() {
         // $('#cont video').on('loadedmetadata',onLoadedMetadata);
     }
     
+    // $(".chart").css('width', graphParams.width);
+    // $(".chart").css('height',graphParams.height);
+    graphParams.width = parseInt($(".chart").css("width").replace("px",""));
+    graphParams.height = parseInt($(".chart").css("height").replace("px",""));
+    
+    graphModule.start(graphParams);
+    // graphModule.stop(graphParams);
 });
 
 var onLoadedMetadata  = function() {

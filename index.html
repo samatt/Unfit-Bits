@@ -41,8 +41,13 @@
     <!-- Google Maps API Key - Use your own API key to enable the map feature. More information on the Google Maps API can be found at https://developers.google.com/maps/ -->
     <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCRngKslUGJTlibkQ3FkfTxj3Xss1UlZDA&sensor=false"></script>
 
+    <!-- Graph Stuff -->    
+    <script src="http://d3js.org/d3.v3.min.js"></script>
+    <script src="../js/graph.js"></script>
+
     <!-- Custom Theme JavaScript -->
     <script src="js/grayscale.js"></script>
+
 
 </head>
 
@@ -106,13 +111,11 @@
     </header>
     
     <!-- <header class="intro"> -->
-        
-    <div id="cont" class="intro" style="display: none;">
-    
     <!-- Setting event here to avoid race condition -->
+    <div id="cont" class="intro" style="display: none;">
         <video autoplay loop muted onloadedmetadata="onLoadedMetadata()">
-            <source src="video/test.mp4" type="video/mp4" >
-            <source src="video/test.webm" type="video/webm">
+            <source src="video/fitbit_small.mp4" type="video/mp4" >
+            <source src="video/fitbit_small.webm" type="video/webm">
         </video>
     
         <div class="content">
@@ -172,13 +175,22 @@
     </section>
 
     <!-- Download Section -->
-    <section id="tecnhique2" class="content-section text-center">
-            <div class="container">
+    <section id="tecnhique2" class="content-section text-center pendulum">
+            <div class="container-fluid">
                 <div class="col-lg-8 col-lg-offset-2">
                     <h2>This is technique 2</h2>
                 </div>
-                <div class="col-md-8 col-md-offset-1">
-                    <iframe src="http://bl.ocks.org/mbostock/raw/3884955" width="960" height="500"></iframe>
+                <div class="col-lg-4 ">
+                    <p class="small-text">
+                        <em>Fit Bit Spoofing</em> provides a solution. This research project investigates several DIY Fitbit spoofing techniques enabling you to create walking datasets to qualify you for all the benefits of a high exercise lifestyle without actually having to share your personal data with your insurance company. 
+                        Our team of experts have conducted an in-depth FitBit Audit to understand how the Fitbit interprets data.  />
+                        With these simple techniques using everyday devices from your home, we show you how to spoof your walking dataset so that you can qualify for the best discounts. 
+                        These techniques can also be used to obsficate your actual behaviors to help you to keep your privacy intact.
+
+                    </p>
+                </div>
+                <div class="col-lg-4 col-lg-offset-2">
+                    <svg class="chart"></svg>
                 </div>
                 
                 
@@ -191,16 +203,18 @@
     </section>
 
     <!-- New Section-->
-    <section id="tecnhique3" class="content-section text-center">
-            <div id ="full" class="test">
+    <section id="tecnhique3" class="content-section text-center metronome">
+    <!-- <img width="768" height="432"src="../img/metronome_blue_light_small.jpg"> -->
+            <!-- <div id ="full"> -->
             <div class="container-fluid">
                 <div class="col-lg-8 col-lg-offset-2">
                     <h2>This is technique 3</h2>
-                    <p class="btn btn-default btn-lg"> Graph and images here </p>
-                    <p > Other Stuff </p>
+                    <p class="btn btn-default btn-lg"> <br />Graph and images here </p>
+                    <!--  -->
+                    <p > Other Stuff </p>        
                 </div>
                 </div>
-            </div>
+            <!-- </div> -->
     </section>
 
     <!-- Contact Section -->
