@@ -3,12 +3,13 @@
  * Code licensed under the Apache License v2.0.
  * For details, see http://www.apache.org/licenses/LICENSE-2.0.
  */
+ // files : ['data/data.tsv','data/data-alt.tsv'],
 
 var graphParams = {
     w : 700,
     h : 371,
-    file : "data/data.tsv",
-    files : ['data/data.tsv','data/data-alt.tsv'],
+    file : "data/Steps.tsv",
+    files : ['data/Distance.tsv','data/Floors.tsv',"data/Steps.tsv"],  
     index :0,    
     selector : ".chart",
     f : " "
@@ -61,15 +62,15 @@ $(document).ready(function() {
     // $(".chart").css('width', graphParams.width);
     // $(".chart").css('height',graphParams.height);
 
-    var iframe = $('#vimeo_player')[0],
-            player = $f(iframe),
-            status = $('.status');
+    // var iframe = $('#vimeo_player')[0],
+    //         player = $f(iframe),
+    //         status = $('.status');
 
-            player.addEvent('ready', function() {
+    //         player.addEvent('ready', function() {
                 
-                player.api('setVolume', 0);
-            });
-            console.log(player);
+    //             player.api('setVolume', 0);
+    //         });
+    //         console.log(player);
     // graphModule.stop(graphParams);
 });
 

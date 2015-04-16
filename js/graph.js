@@ -1,6 +1,6 @@
 var graphModule = (function(){
 
-  //hard coding values for testing
+  //Used with d3_dev
   var params = {
     w : 960,
     h : 500,
@@ -11,6 +11,19 @@ var graphModule = (function(){
     f : " "
   }
   intervalId : 0
+
+  var filesInfo = 
+  {
+    "Distance": { "label": "meters",
+                  "title": "Distance Covered"
+                },
+    "Steps": { "label": "no. of steps",
+                "title": "Steps Taken"
+            },
+    "Floors": { "label": "No. Of Floors",
+                  "title": "Floors Climbed"
+              }
+  }
 
   var margin = {top: 20, right: 30, bottom: 30, left: 40},
     width = params.w - margin.left - margin.right,
@@ -36,14 +49,14 @@ var graphModule = (function(){
   function start(p){
     //hard coding values for testing
     params = p||params;
-    console.log("start");
+    // console.log("start");
     init(params.file);
     draw(params.file);
     intervalId = setInterval(update,5000);
   }
 
   function update(){
-    console.log("update");
+    // console.log("update");
     params.index = params.index>=(params.files.length-1)?0:(params.index+=1);
     console.log(params.index + " : "+params.files.length);
     params.file = params.files[params.index];
@@ -51,13 +64,13 @@ var graphModule = (function(){
   }
 
   function stop(){
-    console.log("stop");
+    // console.log("stop");
     clearInterval(intervalId);
   }
 
   function init(filename){
       // margin = {top:0, right:0, bottom:30, left:0};
-      margin = {top: 40, right: 30, bottom: 30, left: 40},
+      margin = {top: 60, right: 10, bottom: 30, left: 45},
         width = params.w - margin.left - margin.right;
         height = params.h - margin.top - margin.bottom;
 
@@ -79,7 +92,7 @@ var graphModule = (function(){
       
       x.domain(data.map(function(d) { return d.name; }));
       y.domain([0, d3.max(data, function(d) { return d.value; })]);
-
+      // console.log(y.domain());
       chart = d3.select(params.selector)
         .attr("width", width + margin.left + margin.right)
         .attr("height", height + margin.top + margin.bottom)
@@ -94,6 +107,24 @@ var graphModule = (function(){
       chart.append("g")
           .attr("class", "y axis")
           .call(yAxis);
+          //Create Y axis label
+      chart.append("text")
+          .attr("class", "label")
+          .attr("transform", "rotate(-90)")
+          .attr("y", 5 -margin.left)
+          .attr("x",0 - (height / 2))
+          .attr("dy", "0.7em")
+          .style("text-anchor", "middle")
+          .text("Weight");
+      
+      chart.append("text")
+          .attr("class", "title")
+          .attr("y", 20-margin.top )
+          .attr("x",5 -margin.left)
+          .attr("dy", "0.7em")
+          .text("Test");
+          
+    //Add rectangles
 
       chart.selectAll(".bar")
           .data(data)
@@ -101,7 +132,7 @@ var graphModule = (function(){
           .attr("class", "bar")
           .attr("x", function(d) { return x(d.name); })
           .attr("y", function(d) { return y(d.value); })
-          .attr("height", function(d) { return height - y(d.value); })
+          .attr("height", function(d) {  return height - y(d.value); })
           .attr("width", x.rangeBand());
     });
 
@@ -110,12 +141,13 @@ var graphModule = (function(){
   function draw(alt_f) {
 
       // Get the data again
+      
       d3.tsv(alt_f, type,function(error, data) {
-        
-        // Scale the range of the data again 
+
+        var key = alt_f.split(".")[0].split("/")[1];
+        console.log(key);
         x.domain(data.map( function(d) { return d.name; }));
         y.domain([0, d3.max(data, function(d) { return d.value; })]);
-        console.log(y.range());
         
         var bar =  d3.select(params.selector)
                     .selectAll("rect")
@@ -126,11 +158,15 @@ var graphModule = (function(){
             bar.enter().append("rect")
                 .attr("class", "bar")
                 .attr("x", function(d) { return x(d.name); })
-                .attr("y", function(d) { return y(d.value); })
+                .attr("y", function(d) {  return y(d.value); })
                 .attr("height", function(d) { return height - y(d.value); })
                 .attr("width", x.rangeBand());
 
         // Select the section we want to apply our changes to
+          // var text = d3.select(params.selector)
+          //               // .select(".label").transition();
+          
+
         var svg = d3.select(params.selector).transition();
             
             svg.selectAll(".bar")
@@ -142,15 +178,27 @@ var graphModule = (function(){
 
             svg.select(".x") // change the x axis
                 .duration(750)
-                // .attr("transform", "translate(0," + height + ")")
                 .call(xAxis);
 
-            svg.select(".y") // change the y axis
+            svg.select(".y") // change the x axis
                 .duration(750)
                 .call(yAxis);
-        // Make the changes
+            svg.select(".label")
+                .duration(750)
+                .style("opacity", 0)
+                .transition().duration(500)
+                .style("opacity", 1)
+                .text(filesInfo[key].label);
 
+            svg.select(".title")
+                .duration(750)
+                .style("opacity", 0)
+                .transition().duration(500)
+                .style("opacity", 1)
+                .text(filesInfo[key].title);
+        // Make the changes
       });
+
   }
 
   //helper for parser
