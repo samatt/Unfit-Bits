@@ -481,7 +481,7 @@ body {
 
 .chart{
     /*background: rgba(255,255,255,.4);*/
-    background: rgba(74,193,192,.8);
+    /*background: rgba(74,193,192,.8);*/
     /*width:700px;
     height:371px;*/
     position: relative;
@@ -516,7 +516,7 @@ body {
 .small-text{
     font-size: 16px;
     text-align: left;
-    background: rgba(128,128,128,.2);
+    background: rgba(128,128,128,.6);
     /*padding-left: 10px;
     padding-right: 10px;
     padding-top: 10px;*/
@@ -533,6 +533,20 @@ body {
   display: none;
 }
 
+.title{
+    /*font: NovitoNova-Thin;*/
+    font-size: 20px;
+    text-transform: uppercase;
+    text-align: center;
+
+}
+.label{
+    /*font: NovitoNova-Thin;*/
+    font-size: 10px;
+    text-transform: uppercase;
+    text-align: center;
+
+}
 .fbcolor{
     fill: rgba(74,193,192,.8);
 }

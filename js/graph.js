@@ -14,10 +14,10 @@ var graphModule = (function(){
 
   var filesInfo = 
   {
-    "Distance": { "label": "meters",
+    "Distance": { "label": "Meters",
                   "title": "Distance Covered"
                 },
-    "Steps": { "label": "no. of steps",
+    "Steps": { "label": "No. Of Steps",
                 "title": "Steps Taken"
             },
     "Floors": { "label": "No. Of Floors",
@@ -25,7 +25,7 @@ var graphModule = (function(){
               }
   }
 
-  var margin = {top: 20, right: 30, bottom: 30, left: 40},
+  var margin = {top: 20, right: 10, bottom: 30, left: 40},
     width = params.w - margin.left - margin.right,
     height = params.h - margin.top - margin.bottom;
 
@@ -41,7 +41,7 @@ var graphModule = (function(){
 
   var yAxis = d3.svg.axis()
       .scale(y)
-      .orient("left");
+      .orient("left").tickFormat("s");
 
   
   var chart;
@@ -70,7 +70,7 @@ var graphModule = (function(){
 
   function init(filename){
       // margin = {top:0, right:0, bottom:30, left:0};
-      margin = {top: 60, right: 10, bottom: 30, left: 45},
+      margin = {top: 60, right: 0, bottom: 30, left: 50},
         width = params.w - margin.left - margin.right;
         height = params.h - margin.top - margin.bottom;
 
@@ -86,7 +86,15 @@ var graphModule = (function(){
 
       yAxis = d3.svg.axis()
         .scale(y)
-        .orient("left");
+        .orient("left")
+    .tickFormat(function(d) { 
+        if(d >1000){
+           return d3.format("s")(d);
+        }
+        else{
+          return d;  
+        }
+      });
     
     d3.tsv(filename, type, function(error, data) {
       
@@ -106,21 +114,27 @@ var graphModule = (function(){
 
       chart.append("g")
           .attr("class", "y axis")
+          .style("text-anchor", "end")
+          // .attr("transform", "translate("+width +",0 )")
           .call(yAxis);
           //Create Y axis label
       chart.append("text")
           .attr("class", "label")
           .attr("transform", "rotate(-90)")
-          .attr("y", 5 -margin.left)
-          .attr("x",0 - (height / 2))
+          .attr("y", 6)
+          .attr("x",0 )
           .attr("dy", "0.7em")
-          .style("text-anchor", "middle")
+          .style("text-anchor", "end")
           .text("Weight");
       
       chart.append("text")
           .attr("class", "title")
-          .attr("y", 20-margin.top )
-          .attr("x",5 -margin.left)
+          .attr("text-anchor", "end")
+          // .attr("vertical-align", "top")
+          .attr("y", 0 -margin.top -margin.bottom +40 )
+          // .attr("x",width/2)
+          .attr("x",0 )
+          .attr("x",width)
           .attr("dy", "0.7em")
           .text("Test");
           
@@ -143,8 +157,15 @@ var graphModule = (function(){
       // Get the data again
       
       d3.tsv(alt_f, type,function(error, data) {
-
+        
         var key = alt_f.split(".")[0].split("/")[1];
+        for(d in data){
+          
+          data[d].type = key;
+          console.log(data[d]);
+
+        }
+        
         console.log(key);
         x.domain(data.map( function(d) { return d.name; }));
         y.domain([0, d3.max(data, function(d) { return d.value; })]);
@@ -183,19 +204,31 @@ var graphModule = (function(){
             svg.select(".y") // change the x axis
                 .duration(750)
                 .call(yAxis);
-            svg.select(".label")
-                .duration(750)
-                .style("opacity", 0)
-                .transition().duration(500)
-                .style("opacity", 1)
-                .text(filesInfo[key].label);
-
+              // console.log(filesInfo[key].);
+            // console.log(d3.format("s")(filesInfo[key].label);
+            if(y.domain()[1] > 10000){
+              svg.select(".label")
+                  .duration(750)
+                  .style("opacity", 0)
+                  .transition().duration(500)
+                  .style("opacity", 1)
+                  .text(filesInfo[key].label);
+            }
+            else{
+              svg.select(".label")
+                  .duration(750)
+                  .style("opacity", 0)
+                  .transition().duration(500)
+                  .style("opacity", 1)
+                  .text(filesInfo[key].label);
+            }
             svg.select(".title")
                 .duration(750)
                 .style("opacity", 0)
                 .transition().duration(500)
                 .style("opacity", 1)
                 .text(filesInfo[key].title);
+
         // Make the changes
       });
 
@@ -214,5 +247,5 @@ var graphModule = (function(){
     }
   }
 
-})();
+});
 
