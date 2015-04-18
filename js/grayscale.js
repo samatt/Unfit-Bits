@@ -25,6 +25,17 @@ var graph2Params = {
     f : " "
   }
 
+var graph3Params = {
+    w : 700,
+    h : 371,
+    file : "data/Steps.tsv",
+    files : ['data/Distance.tsv','data/Floors.tsv',"data/Steps.tsv"],  
+    index :0,    
+    selector : ".chart2",
+    f : " "
+  }
+
+
 $(document).ready(function() {
     
     // IE detect
@@ -73,6 +84,11 @@ $(document).ready(function() {
         graph2Params.width = parseInt($(graph2Params.selector).css("width").replace("px",""));
         graph2Params.height = parseInt($(graph2Params.selector).css("height").replace("px",""));    
         graph2.start(graph2Params);
+
+        var graph3 = graphModule();
+        graph3Params.width = parseInt($(graph3Params.selector).css("width").replace("px",""));
+        graph3Params.height = parseInt($(graph3Params.selector).css("height").replace("px",""));    
+        graph3.start(graph3Params);
     }
     
     // $(".chart").css('width', graphParams.width);

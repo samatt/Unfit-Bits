@@ -15,13 +15,16 @@ var graphModule = (function(){
   var filesInfo = 
   {
     "Distance": { "label": "Meters",
-                  "title": "Distance Covered"
+                  "title": "Distance Covered",
+                  "unit" : 'm'
                 },
     "Steps": { "label": "No. Of Steps",
-                "title": "Steps Taken"
+                "title": "Steps Taken",
+                "unit": "steps"
             },
     "Floors": { "label": "No. Of Floors",
-                  "title": "Floors Climbed"
+                  "title": "Floors Climbed",
+                  "unit": "floors"
               }
   }
 
@@ -42,6 +45,13 @@ var graphModule = (function(){
   var yAxis = d3.svg.axis()
       .scale(y)
       .orient("left").tickFormat("s");
+
+  var tip = d3.tip()
+    .attr('class', 'd3-tip')
+    .offset([-10, 0])
+    .html(function(d) {
+      return "<span style='color: rgba(74,193,192,1);'>" + d.value + " "+ d.unit+"</span>";
+    });
 
   
   var chart;
@@ -70,7 +80,7 @@ var graphModule = (function(){
 
   function init(filename){
       // margin = {top:0, right:0, bottom:30, left:0};
-      margin = {top: 60, right: 0, bottom: 30, left: 50},
+      margin = {top: 50, right: 0, bottom: 30, left: 50},
         width = params.w - margin.left - margin.right;
         height = params.h - margin.top - margin.bottom;
 
@@ -106,7 +116,7 @@ var graphModule = (function(){
         .attr("height", height + margin.top + margin.bottom)
         .append("g")
           .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
-
+      chart.call(tip);
       chart.append("g")
           .attr("class", "x axis")
           .attr("transform", "translate(0," + height + ")")
@@ -134,7 +144,7 @@ var graphModule = (function(){
           .attr("y", 0 -margin.top -margin.bottom +40 )
           // .attr("x",width/2)
           .attr("x",0 )
-          .attr("x",width)
+          .attr("x",width - margin.right )
           .attr("dy", "0.7em")
           .text("Test");
           
@@ -147,7 +157,9 @@ var graphModule = (function(){
           .attr("x", function(d) { return x(d.name); })
           .attr("y", function(d) { return y(d.value); })
           .attr("height", function(d) {  return height - y(d.value); })
-          .attr("width", x.rangeBand());
+          .attr("width", x.rangeBand())
+          .on('mouseover', tip.show)
+          .on('mouseout', tip.hide);
     });
 
   }
@@ -162,6 +174,7 @@ var graphModule = (function(){
         for(d in data){
           
           data[d].type = key;
+          data[d].unit = filesInfo[key].unit;
           console.log(data[d]);
 
         }
@@ -181,12 +194,9 @@ var graphModule = (function(){
                 .attr("x", function(d) { return x(d.name); })
                 .attr("y", function(d) {  return y(d.value); })
                 .attr("height", function(d) { return height - y(d.value); })
-                .attr("width", x.rangeBand());
-
-        // Select the section we want to apply our changes to
-          // var text = d3.select(params.selector)
-          //               // .select(".label").transition();
-          
+                .attr("width", x.rangeBand())
+                .on('mouseover', tip.show)
+                .on('mouseout', tip.hide);
 
         var svg = d3.select(params.selector).transition();
             
@@ -197,39 +207,27 @@ var graphModule = (function(){
                 .attr("height", function(d) { return height - y(d.value); })
                 .attr("width", x.rangeBand());
 
-            svg.select(".x") // change the x axis
+            svg.select(".x")
                 .duration(750)
                 .call(xAxis);
 
-            svg.select(".y") // change the x axis
+            svg.select(".y")
                 .duration(750)
                 .call(yAxis);
-              // console.log(filesInfo[key].);
-            // console.log(d3.format("s")(filesInfo[key].label);
-            if(y.domain()[1] > 10000){
-              svg.select(".label")
-                  .duration(750)
-                  .style("opacity", 0)
-                  .transition().duration(500)
-                  .style("opacity", 1)
-                  .text(filesInfo[key].label);
-            }
-            else{
-              svg.select(".label")
-                  .duration(750)
-                  .style("opacity", 0)
-                  .transition().duration(500)
-                  .style("opacity", 1)
-                  .text(filesInfo[key].label);
-            }
+
+            svg.select(".label")
+                .duration(750)
+                .style("opacity", 0)
+                .transition().duration(500)
+                .style("opacity", 1)
+                .text(filesInfo[key].label);
+
             svg.select(".title")
                 .duration(750)
                 .style("opacity", 0)
                 .transition().duration(500)
                 .style("opacity", 1)
                 .text(filesInfo[key].title);
-
-        // Make the changes
       });
 
   }
