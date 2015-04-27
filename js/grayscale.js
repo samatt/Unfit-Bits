@@ -5,35 +5,35 @@
  */
  // files : ['data/data.tsv','data/data-alt.tsv'],
 
-var graphParams = {
-    w : 700,
-    h : 371,
-    file : "data/Steps.tsv",
-    files : ['data/Distance.tsv','data/Floors.tsv',"data/Steps.tsv"],  
-    index :0,    
-    selector : ".chart",
-    f : " "
-  }
+// var graphParams = {
+//     w : 700,
+//     h : 371,
+//     file : "data/Steps.tsv",
+//     files : ['data/Distance.tsv','data/Floors.tsv',"data/Steps.tsv"],  
+//     index :0,    
+//     selector : ".chart",
+//     f : " "
+//   }
 
-var graph2Params = {
-    w : 700,
-    h : 371,
-    file : "data/Steps.tsv",
-    files : ['data/Distance.tsv','data/Floors.tsv',"data/Steps.tsv"],  
-    index :0,    
-    selector : ".chart1",
-    f : " "
-  }
+// var graph2Params = {
+//     w : 700,
+//     h : 371,
+//     file : "data/Steps.tsv",
+//     files : ['data/Distance.tsv','data/Floors.tsv',"data/Steps.tsv"],  
+//     index :0,    
+//     selector : ".chart1",
+//     f : " "
+//   }
 
-var graph3Params = {
-    w : 700,
-    h : 371,
-    file : "data/Steps.tsv",
-    files : ['data/Distance.tsv','data/Floors.tsv',"data/Steps.tsv"],  
-    index :0,    
-    selector : ".chart2",
-    f : " "
-  }
+// var graph3Params = {
+//     w : 700,
+//     h : 371,
+//     file : "data/Steps.tsv",
+//     files : ['data/Distance.tsv','data/Floors.tsv',"data/Steps.tsv"],  
+//     index :0,    
+//     selector : ".chart2",
+//     f : " "
+//   }
 
 
 $(document).ready(function() {
