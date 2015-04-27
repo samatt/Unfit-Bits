@@ -50,7 +50,7 @@ p {
 em{
     font-style: normal;
     color: #4ac1c0;
-    background: #fff;
+    /*background: #fff;*/
 }
 
 @media(min-width:768px) {
@@ -172,7 +172,7 @@ a:focus {
     /*left: 0;*/
     vertical-align: mid;
     /*color: #fff;*/
-    /*background: url(../img/poster.png) no-repeat bottom center scroll;*/
+    background: url(../img/poster.png) no-repeat bottom center scroll;
     background-color: #000;
     /*-webkit-background-size: cover;
     -moz-background-size: cover;
@@ -186,7 +186,7 @@ a:focus {
     padding: 100px 0;
     text-align: center;
     color: #fff;
-    background: url(../img/metronome_blue_light_small.jpg) no-repeat bottom center scroll;
+    background: url(../video/gifs/metronome.gif) no-repeat bottom center scroll;
     background-color: #000;
     -webkit-background-size: cover;
     -moz-background-size: cover;
@@ -201,7 +201,22 @@ a:focus {
     padding: 100px 0;
     text-align: center;
     color: #fff;
-    background: url(../img/bike_blue_small.jpg) no-repeat bottom center scroll;
+    background: url(../video/gifs/bike.gif) no-repeat bottom center scroll;
+    background-color: #FFF;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;
+}
+
+.drill {
+    display: table;
+    width: 100%;
+    height: 100%;
+    padding: 100px 0;
+    text-align: center;
+    color: #fff;
+    background: url(../video/gifs/drill.gif) no-repeat bottom center scroll;
     background-color: #FFF;
     -webkit-background-size: cover;
     -moz-background-size: cover;
@@ -217,7 +232,7 @@ a:focus {
     text-align: center;
     font-size: 10px;
     color: #fff;
-    background: url(../img/pendulum.jpg) no-repeat bottom center scroll;
+    background: url(../video/gifs/pendulum.gif) no-repeat bottom center scroll;
     background-color: #FFF;
     -webkit-background-size: cover;
     -moz-background-size: cover;
@@ -491,9 +506,15 @@ body {
 }
 
 .video{
-    position: relative;
-    width: 80%;
-    height:auto;
+    /*background: url(../img/_poster.png) no-repeat bottom center scroll;*/
+    background-color: #000;
+    vertical-align: mid;
+    /*position: relative;*/
+    /*width: 100%;*/
+    /*height:auto;*/
+    /*display: table;*/
+    width: 100%;
+    height: 100%;
 }
 
 .video-text{
@@ -514,13 +535,11 @@ body {
 }
 
 .small-text{
-    font-size: 16px;
-    text-align: left;
-    background: rgba(128,128,128,.6);
+    /*background: rgba(128,128,128,.6);*/
     /*padding-left: 10px;
     padding-right: 10px;
     padding-top: 10px;*/
-    padding: 20px
+    /*padding: 20px*/
 }
 .axis path,
 .axis line {
@@ -539,6 +558,9 @@ body {
     text-transform: uppercase;
     text-align: center;
 
+}
+.drill{
+    /*background: url*/
 }
 .label{
     /*font: NovitoNova-Thin;*/
@@ -560,6 +582,31 @@ body {
   border-radius: 1px;
 }
 
+.buttonpos{
+    padding-top: 10%;
+    padding-bottom: 35%
+}
+
+.buttonpos1{
+    /*padding-top: 10%;*/
+    /*padding-bottom: 10%*/
+}
+.items{
+    list-style-type: none;
+    display: inline-block;
+    margin: 0 auto;
+}
+.item-header{
+    font-family: NovitoNova-Thin;
+    font-size: 60px;
+    text-align: center;
+}
+.item-body{
+    font: Karla-Regular;
+    font-size: 20px;
+    text-align: center;
+
+}
 /* Creates a small triangle extender for the tooltip */
 .d3-tip:after {
   box-sizing: border-box;
