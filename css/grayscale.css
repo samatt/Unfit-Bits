@@ -186,7 +186,7 @@ a:focus {
     padding: 100px 0;
     text-align: center;
     color: #fff;
-    background: url(../video/gifs/metronome.gif) no-repeat bottom center scroll;
+    background: url(../gifs/metronome.gif) no-repeat bottom center scroll;
     background-color: #000;
     -webkit-background-size: cover;
     -moz-background-size: cover;
@@ -201,7 +201,7 @@ a:focus {
     padding: 100px 0;
     text-align: center;
     color: #fff;
-    background: url(../video/gifs/bike.gif) no-repeat bottom center scroll;
+    background: url(../gifs/bike.gif) no-repeat bottom center scroll;
     background-color: #FFF;
     -webkit-background-size: cover;
     -moz-background-size: cover;
@@ -216,7 +216,7 @@ a:focus {
     padding: 100px 0;
     text-align: center;
     color: #fff;
-    background: url(../video/gifs/drill.gif) no-repeat bottom center scroll;
+    background: url(../gifs/drill.gif) no-repeat bottom center scroll;
     background-color: #FFF;
     -webkit-background-size: cover;
     -moz-background-size: cover;
@@ -232,7 +232,7 @@ a:focus {
     text-align: center;
     font-size: 10px;
     color: #fff;
-    background: url(../video/gifs/pendulum.gif) no-repeat bottom center scroll;
+    background: url(../gifs/pendulum.gif) no-repeat bottom center scroll;
     background-color: #FFF;
     -webkit-background-size: cover;
     -moz-background-size: cover;
