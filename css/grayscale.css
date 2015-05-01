@@ -5,12 +5,12 @@
  */
 @font-face {
   font-family: NovitoNova-Thin;
-  src: url('../fonts/NovitoNova-Thin.otf') format("opentype"); 
+  src: url('../fonts/NovitoNova-Thin.otf') format("opentype");
 }
 
 @font-face {
   font-family: Karla-Regular;
-  src: url('../fonts/karla/Karla-Regular.ttf') format("truetype"); 
+  src: url('../fonts/Edmondsans-Regular.otf') format("opentype");
 }
 
 
@@ -32,7 +32,7 @@ h3,
 h4,
 h5,
 h6 {
-    margin: 0 0 35px;
+    margin: 0 0 5px;
     text-transform: uppercase;
     /*font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;*/
     font-family: NovitoNova-Thin;
@@ -49,8 +49,9 @@ p {
 
 em{
     font-style: normal;
-    color: #4ac1c0;
-    /*background: #fff;*/
+    color: #CDCDCD;
+/*   #4ac1c0
+    background: #fff;*/
 }
 
 @media(min-width:768px) {
@@ -172,7 +173,7 @@ a:focus {
     /*left: 0;*/
     vertical-align: mid;
     /*color: #fff;*/
-    background: url(../img/poster.png) no-repeat bottom center scroll;
+    background: url(../img/poster1.png) no-repeat bottom center scroll;
     background-color: #000;
     /*-webkit-background-size: cover;
     -moz-background-size: cover;
@@ -250,7 +251,8 @@ a:focus {
 }
 
 .intro .intro-body .intro-text {
-    font-size: 18%;
+    font-size: 18px;
+    font-weight: 300px;
 }
 
 @media(min-width:768px) {
@@ -264,7 +266,7 @@ a:focus {
     }
 
     .intro .intro-body .intro-text {
-        font-size: 26px;
+        font-size: 24px;
     }
 }
 
@@ -308,7 +310,7 @@ a:focus {
     -moz-animation-timing-function: linear;
 }
 
-@-webkit-keyframes pulse {    
+@-webkit-keyframes pulse {
     0% {
         -webkit-transform: scale(1);
         transform: scale(1);
@@ -325,7 +327,7 @@ a:focus {
     }
 }
 
-@-moz-keyframes pulse {    
+@-moz-keyframes pulse {
     0% {
         -moz-transform: scale(1);
         transform: scale(1);
@@ -427,8 +429,8 @@ z-index:-1
 }
 
 .btn-default {
-    border: 1px solid #42dca3;
-    color: #42dca3;
+    border: 1px solid #5873A5;
+    color: #5873A5;
     background-color: transparent;
 }
 
@@ -502,11 +504,11 @@ body {
     position: relative;
     /*height: auto;*/
     /*width: auto;*/
-    
+
 }
 
 .video{
-    /*background: url(../img/_poster.png) no-repeat bottom center scroll;*/
+    /*background: url(../img/_poster1.png) no-repeat bottom center scroll;*/
     background-color: #000;
     vertical-align: mid;
     /*position: relative;*/
@@ -524,7 +526,7 @@ body {
 }
 /*r margin = {top: 20, right: 30, bottom: 30, left: 40},*/
 .bar {
- fill: rgba(255,255,255,.6); 
+ fill: rgba(255,255,255,.6);
 }
 
 .axis text {

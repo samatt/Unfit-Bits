@@ -9,8 +9,8 @@ var graphParams = {
     w : 700,
     h : 371,
     file : "data/Steps.tsv",
-    files : ['data/Distance.tsv','data/Floors.tsv',"data/Steps.tsv"],  
-    index :0,    
+    files : ['data/Distance.tsv','data/Floors.tsv',"data/Steps.tsv"],
+    index :0,
     selector : ".chart",
     f : " "
   }
@@ -19,8 +19,8 @@ var graph2Params = {
     w : 700,
     h : 371,
     file : "data/Steps.tsv",
-    files : ['data/Distance.tsv','data/Floors.tsv',"data/Steps.tsv"],  
-    index :0,    
+    files : ['data/Distance.tsv','data/Floors.tsv',"data/Steps.tsv"],
+    index :0,
     selector : ".chart1",
     f : " "
   }
@@ -29,47 +29,47 @@ var graph3Params = {
     w : 700,
     h : 371,
     file : "data/Steps.tsv",
-    files : ['data/Distance.tsv','data/Floors.tsv',"data/Steps.tsv"],  
-    index :0,    
+    files : ['data/Distance.tsv','data/Floors.tsv',"data/Steps.tsv"],
+    index :0,
     selector : ".chart2",
     f : " "
   }
 
 
 $(document).ready(function() {
-    
+
     // IE detect
     function iedetect(v) {
 
         var r = RegExp('msie' + (!isNaN(v) ? ('\\s' + v) : ''), 'i');
         return r.test(navigator.userAgent);
-            
+
     }
-    
-    // For mobile screens, just show an image called 'poster.jpg'. Mobile
+
+    // For mobile screens, just show an image called 'poster1.jpg'. Mobile
     // screens don't support autoplaying videos, or for IE.
     if(screen.width < 800 || iedetect(8) || iedetect(7) || 'ontouchstart' in window) {
-    
+
         (adjSize = function() { // Create function called adjSize
-            
+
             $width = $(window).width(); // Width of the screen
             $height = $(window).height(); // Height of the screen
-            
+
             // Resize image accordingly
             $('#init').css({
                 'display' : 'block',
-                'background-image' : 'url(img/poster.png)', 
-                'background-size' : 'cover', 
-                'width' : $width+'px', 
+                'background-image' : 'url(img/poster1.png)',
+                'background-size' : 'cover',
+                'width' : $width+'px',
                 'height' : $height+'px'
             });
-            
+
             // Hide video
             $('video').hide();
             $(".chart").hide();
-            
+
         })(); // Run instantly
-        
+
         // Run on resize too
         $(window).resize(adjSize);
     }
@@ -78,20 +78,20 @@ $(document).ready(function() {
         // var graph = graphModule();
         // console.log(graph);
         // graphParams.width = parseInt($(graphParams.selector).css("width").replace("px",""));
-        // graphParams.height = parseInt($(graphParams.selector).css("height").replace("px",""));    
+        // graphParams.height = parseInt($(graphParams.selector).css("height").replace("px",""));
         // graph.start(graphParams);
 
         // var graph2 = graphModule();
         // graph2Params.width = parseInt($(graph2Params.selector).css("width").replace("px",""));
-        // graph2Params.height = parseInt($(graph2Params.selector).css("height").replace("px",""));    
+        // graph2Params.height = parseInt($(graph2Params.selector).css("height").replace("px",""));
         // graph2.start(graph2Params);
 
         // var graph3 = graphModule();
         // graph3Params.width = parseInt($(graph3Params.selector).css("width").replace("px",""));
-        // graph3Params.height = parseInt($(graph3Params.selector).css("height").replace("px",""));    
+        // graph3Params.height = parseInt($(graph3Params.selector).css("height").replace("px",""));
         // graph3.start(graph3Params);
     }
-    
+
     // $(".chart").css('width', graphParams.width);
     // $(".chart").css('height',graphParams.height);
 
@@ -100,7 +100,7 @@ $(document).ready(function() {
     //         status = $('.status');
 
     //         player.addEvent('ready', function() {
-                
+
     //             player.api('setVolume', 0);
     //         });
     //         console.log(player);
@@ -111,48 +111,48 @@ var onLoadedMetadata  = function() {
         console.log("HERE");
         $('#init').css("display","none");
         $('#cont').css("display", "block");
-        
+
         var $width, $height, // Width and height of screen
             $vidwidth = this.videoWidth, // Width of video (actual width)
             $vidheight = this.videoHeight, // Height of video (actual height)
             $aspectRatio = $vidwidth / $vidheight; // The ratio the video's height and width are in
-        
+
         if( $(window).width() === undefined ){
                 console.log("undefined!")
         }
-        
+
         (adjSize = function() { // Create function called adjSize
-                        
-            
+
+
             $width = $(window).width(); // Width of the screen
             $height = $(window).height(); // Height of the screen
 
             console.log($width + " : "+$height);
             $boxRatio = $width / $height; // The ratio the screen is in
-                        
+
             $adjRatio = $aspectRatio / $boxRatio; // The ratio of the video divided by the screen size
-                        
+
             // Set the container to be the width and height of the screen
-            $('#cont').css({'width' : $width+'px', 'height' : $height+'px'}); 
-            
-            $('div.intro .content .container .intro-body').css({'width' : $width+'px', 'height' : $height+'px'}); 
-                        
+            $('#cont').css({'width' : $width+'px', 'height' : $height+'px'});
+
+            $('div.intro .content .container .intro-body').css({'width' : $width+'px', 'height' : $height+'px'});
+
             if($boxRatio < $aspectRatio) { // If the screen ratio is less than the aspect ratio..
                 // Set the width of the video to the screen size multiplied by $adjRatio
-                $vid = $('#cont video').css({'width' : $width*$adjRatio+'px'}); 
-                 // $('div.intro .content  .container .row .intro-body  ').css({'width' : $width*$adjRatio+'px', 'height' : $height*(1/$adjRatio)+'px'}); 
-                // $('.intro-body').css({'width' : $width*$adjRatio+'px'}); 
+                $vid = $('#cont video').css({'width' : $width*$adjRatio+'px'});
+                 // $('div.intro .content  .container .row .intro-body  ').css({'width' : $width*$adjRatio+'px', 'height' : $height*(1/$adjRatio)+'px'});
+                // $('.intro-body').css({'width' : $width*$adjRatio+'px'});
             } else {
                 // Else just set the video to the width of the screen/container
                 $vid = $('#cont video').css({'width' : $width+'px'});
-                // $('div.content .intro .container .intro-body .row ').css({'width' : $width*$adjRatio+'px', 'height' : $height*(1/$adjRatio)+'px'}); 
+                // $('div.content .intro .container .intro-body .row ').css({'width' : $width*$adjRatio+'px', 'height' : $height*(1/$adjRatio)+'px'});
             }
-                             
+
         })(); // Run function immediately
-                    
+
         // Run function also on window resize.
         $(window).resize(adjSize);
-                    
+
     }
 
 // jQuery to collapse the navbar on scroll
@@ -199,7 +199,7 @@ function init() {
         scrollwheel: false,
         draggable: false,
 
-        // How you would like to style the map. 
+        // How you would like to style the map.
         // This is where you would paste any style found on Snazzy Maps.
         styles: [{
             "featureType": "water",
@@ -311,7 +311,7 @@ function init() {
         }]
     };
 
-    // Get the HTML DOM element that will contain your map 
+    // Get the HTML DOM element that will contain your map
     // We are using a div with id="map" seen below in the <body>
     // var mapElement = document.getElementById('map');
 

@@ -2436,7 +2436,7 @@ table th[class*="col-"] {
 }
 .table-responsive {
   min-height: .01%;
-  overflow-x: auto;
+  overflow-x: hidden;
 }
 @media screen and (max-width: 767px) {
   .table-responsive {
@@ -4085,7 +4085,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 .navbar-collapse {
   padding-right: 15px;
   padding-left: 15px;
-  overflow-x: visible;
+  overflow-x: hidden;
   -webkit-overflow-scrolling: touch;
   border-top: 1px solid transparent;
   -webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, .1);
@@ -5662,6 +5662,9 @@ a.list-group-item-danger.active:focus {
   width: 100%;
   height: 100%;
   border: 0;
+
+
+
 }
 .embed-responsive-16by9 {
   padding-bottom: 56.25%;
