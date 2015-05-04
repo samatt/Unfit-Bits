@@ -30,8 +30,7 @@ h1,
 h2,
 h3,
 h4,
-h5,
-h6 {
+h5 {
     margin: 0 0 5px;
     text-transform: uppercase;
     /*font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;*/
@@ -39,6 +38,15 @@ h6 {
     font-weight: 1000;
     font-size: 50px;
     letter-spacing: 1px;
+}
+
+h6  {margin: 0 0 5px;
+text-transform: uppercase;
+/*font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;*/
+font-family: Edmondsans-Regular;
+font-weight: 1000;
+font-size: 8px;
+letter-spacing: 1px;
 }
 
 p {
