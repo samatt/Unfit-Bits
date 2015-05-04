@@ -15,15 +15,19 @@
 
 
 body {
-    width: 100%;
+    /*width: 100%;*/
     height: 100%;
     font-family: Edmondsans-Regular;
     color: #fff;
     background-color: #000;
+    max-width: 100%;
+    overflow-x: hidden;
 }
 
 html {
-    width: 100%;
+    /*width: 100%;*/
+    max-width: 100%;
+    overflow-x: hidden;
     height: 100%;
 }
 h1,
