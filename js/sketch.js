@@ -14,6 +14,9 @@ var sketch = function(p){
 			yOffset =yOffset + panel.offset;
 			panels.push(panel);
 		};
+		// p.dom.select("#defaultCanvas").remove();
+		var elem = document.getElementById("defaultCanvas");
+		elem.parentNode.removeChild(elem);
 	}
 
 	p.draw = function() {
