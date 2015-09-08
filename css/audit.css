@@ -1,13 +1,66 @@
+@font-face {
+   font-family: NovitoNova-Thin;
+   src: url('../fonts/NovitoNova-Thin.otf') format("opentype");
+ }
+
+ @font-face {
+   font-family: Edmondsans-Regular;
+   src: url('../fonts/Edmondsans-Regular.otf') format("opentype");
+ }
+
 body {
     /*width: 100%;*/
-    height: 100%;
+    /*height: 100%;*/
     font-family: Edmondsans-Regular;
     color: #fff;
-    /*background-color: #000;*/
+    background-color: #000;
     /*max-width: 100%;*/
     /*overflow-x: hidden;*/
 }
+.test{
+	width: 100%;
+	height: 100%;
+}
+/*button{
+    margin: 0px 0px 10px;
+}*/
 
+.btn {
+  /*font-family: Arial;*/
+  color: #ffffff;
+  font-size: 11px;
+  background: #000000;
+  /*padding: 10px 20px 10px 20px;*/
+  /*text-decoration: none;*/
+}
+
+.btn:hover {
+  background: #5974a3;
+  text-decoration: none;
+}
+
+.heading{
+    color:#fff;
+    margin: 10px 0 10px;
+    text-transform: uppercase;
+    /*font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;*/
+    font-family: NovitoNova-Thin;
+    font-weight: 1000;
+    font-size: 50px;
+    letter-spacing: 1px;
+}
+.main{
+	width:100%;
+	height:auto;
+	/*background: black;*/
+    
+	overflow:auto
+	margin-left: auto;
+	margin-right: auto;
+}
+.sub{
+	float: left;
+}
 .left {
     /*width:auto;*/
     background:red;
@@ -21,12 +74,14 @@ body {
 }
 .text{
 	/*background-color: black;*/
-	color: black;
 	text-align: center;
 }
 .right {
 	/*overflow:visible;*/
-    background:black	;
+    background:black;
+    border-style: solid;
+    border-width: 1px;
+    border-color: white;
     /*white-space:nowrap;
     overflow:hidden;
     text-overflow:ellipsis;
