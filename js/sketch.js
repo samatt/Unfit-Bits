@@ -1,5 +1,5 @@
 var sketch = function(p){
-	var spoofs = ['swing','bike','drill'];
+	var spoofs = ['drill','swing','bike'];
 	//"drill",'pendulum',
 	var panels = [];
 
@@ -7,7 +7,7 @@ var sketch = function(p){
 		
 		var panelWidth = window.innerWidth;
 		var panelHeight = window.innerHeight;
-		var yOffset = 10;
+		var yOffset = 50;
 		
 		for (var i = 0; i < spoofs.length; i++) {
 			var panel = new Panel(p,spoofs[i],panelWidth,panelHeight,yOffset);			
@@ -18,14 +18,9 @@ var sketch = function(p){
 		var elem = document.getElementById("defaultCanvas");
 		elem.parentNode.removeChild(elem);
 
-		// while(!panels[0].videoLoaded && !panels[1].videoLoaded){
-		// 	// console.log("allLoaded")
-		
-		// }
 	}
 
 	p.draw = function() {
-		// console.log(panels[0].videoLoaded,panels[1].videoLoaded);
 		for (var i = 0; i < panels.length; i++) {
 			panels[i].draw();
 		};
@@ -36,13 +31,6 @@ var sketch = function(p){
 			panels[i].clearCanvas();
 		};
 	}
-
-	// function checkLoaded(){
-	// 	var allLoaded = 
-	// 	for (var i = 0; i < panels.length; i++) {
-	// 		panels[i].videoLoaded 
-	// 	}
-	// }
 }
 
 function Panel(p,id,w,h,yOffset){
@@ -156,13 +144,16 @@ function Panel(p,id,w,h,yOffset){
 
 		//FIXME: Make this dependent on the width of the window
 		this.offset  = this.offset + this.heading.elt.clientHeight + 20;
+
+		var elt = document.getElementById(id+'-heading');
+		elt.addEventListener("click", toggleVid.bind(this));
 	}
 
 	this.text = function(){
 
 		//FIXME: Make this dependent on the width of the window 
 		// var textPos = 10 +this.offset;
-		this.text = p.createP("STEP COUNT : 100" )
+		// this.text = p.createP("STEP COUNT : 100" )
 		// this.text = p.createP("HERE IS MY TEST TEXT FOR " + id.toUpperCase())
 		this.text.id(id+'-text');
 		this.text.style("position","absolute");
@@ -205,14 +196,14 @@ function Panel(p,id,w,h,yOffset){
 
 	}
 
-	this.toggleVid = function () {
+	function toggleVid() {
 		if (this.playing) {
 			this.v_e.pause();
-			this.button.html('play');
+			// this.button.html('play');
 		} 
 		else {
 			this.v_e.play();
-			this.button.html('pause');
+			// this.button.html('pause');
 		}
 		this.playing = !this.playing;
 	}
@@ -230,9 +221,9 @@ function Panel(p,id,w,h,yOffset){
 	this.createImage();
 	this.offset = this.offset + this.v_e.height;
 	// this.text();
-	this.createButton();
+	// this.createButton();
 	p.loadTable(this.dataPath+".csv", ["csv","header"],this.loadData.bind(this));
-	this.button.mousePressed(this.toggleVid.bind(this)); 
+	// this.button.mousePressed(this.toggleVid.bind(this)); 
 	// console.log(this.text);
 
 	// DRAWING STUFF
