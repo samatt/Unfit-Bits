@@ -1,6 +1,6 @@
 var sketch = function(p){
-	var spoofs = ['drill','swing','bike'];
-	//"drill",'pendulum',
+	var spoofs = ['drill','bike','swing'];
+	//"drill",'pendulum',,'swing','bike'
 	var panels = [];
 
 	p.setup = function(){
@@ -115,7 +115,7 @@ function Panel(p,id,w,h,yOffset){
 	}
 	
 	this.createButton = function(){
-		this.button = p.createButton('Play '+id);
+		this.button = p.createButton('Play the data');
 		//FIXME: Make this dependent on the width of the window
 		this.button.position(0,this.offset+50);		
 		this.button.class("btn");
@@ -142,11 +142,23 @@ function Panel(p,id,w,h,yOffset){
 		this.heading.style('width',w);
 		this.heading.style('height',this.colHeight);
 
+		// this.playIcon = p.createImg("assets/play.png");
+		// this.heading.id(id+'-icon');
+		// this.playIcon.size(40,40);
+		// this.playIcon.style("position","absolute");
+		// this.playIcon.style("left","80px");
+		// // this.heading.style('width',120);
+		// // this.heading.style('width',120);
+		// // this.heading.style('height',128);
+		// this.playIcon.style("top",(this.offset+15).toString()+"px");
+		// this.playIcon.class("sub");
+
+
 		//FIXME: Make this dependent on the width of the window
 		this.offset  = this.offset + this.heading.elt.clientHeight + 20;
 
-		var elt = document.getElementById(id+'-heading');
-		elt.addEventListener("click", toggleVid.bind(this));
+		// var elt = document.getElementById(id+'-heading');
+		// elt.addEventListener("click", toggleVid.bind(this));
 	}
 
 	this.text = function(){
@@ -211,19 +223,19 @@ function Panel(p,id,w,h,yOffset){
 	///MAIN LOGIC
 	// Order of function calls is important
 
-	this.numCols = 3;
+	this.numCols = 2;
 	this.colWidth = w/this.numCols;
 	//Col height is reset with the video;
 	this.colHeight = h;	
 	this.heading();
 	this.createVideo();
 	this.createCanvas()
-	this.createImage();
+	// this.createImage();
 	this.offset = this.offset + this.v_e.height;
 	// this.text();
-	// this.createButton();
+	this.createButton();
 	p.loadTable(this.dataPath+".csv", ["csv","header"],this.loadData.bind(this));
-	// this.button.mousePressed(this.toggleVid.bind(this)); 
+	this.button.mousePressed(toggleVid.bind(this)); 
 	// console.log(this.text);
 
 	// DRAWING STUFF
