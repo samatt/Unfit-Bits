@@ -30,6 +30,8 @@ body {
   color: #ffffff;
   font-size: 11px;
   background: #000000;
+  border-color: #ffffff;
+  border-style: solid;
   /*padding: 10px 20px 10px 20px;*/
   /*text-decoration: none;*/
 }
@@ -60,7 +62,7 @@ h1{
 	width:100%;
 	height:auto;
 	/*background: black;*/
-    
+
 	overflow:auto
 	margin-left: auto;
 	margin-right: auto;

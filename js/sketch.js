@@ -4,13 +4,13 @@ var sketch = function(p){
 	var panels = [];
 
 	p.setup = function(){
-		
+
 		var panelWidth = window.innerWidth;
 		var panelHeight = window.innerHeight;
-		var yOffset = 50;
-		
+		var yOffset = 100;
+
 		for (var i = 0; i < spoofs.length; i++) {
-			var panel = new Panel(p,spoofs[i],panelWidth,panelHeight,yOffset);			
+			var panel = new Panel(p,spoofs[i],panelWidth,panelHeight,yOffset);
 			yOffset = panel.offset+100;
 			console.log(panel.offset);
 			panels.push(panel);
@@ -34,7 +34,7 @@ var sketch = function(p){
 }
 
 function Panel(p,id,w,h,yOffset){
-	
+
 	this.tMax = 0;
 	this.tMin = 10000000000;
 	this.dataPath = "assets/"+id
@@ -49,7 +49,7 @@ function Panel(p,id,w,h,yOffset){
 	this.id = id;
 	this.playing = false;
 	this.offset = 0;
-	this.offset  = yOffset; 
+	this.offset  = yOffset;
 	this.padding = 20;
 	this.videoLoaded = false;
 
@@ -57,22 +57,22 @@ function Panel(p,id,w,h,yOffset){
 	this.createVideo = function(){
 		this.v_p =  p.createDiv("");
 		this.v_p.id(id+'-video-parent')
-		this.v_p.width = this.colWidth;
-		this.v_p.position(0,this.offset);
+		this.v_p.width = this.colWidth-150;
+		this.v_p.position(120,this.offset);   //<-------------moves video
 		this.v_p.class("sub");
 		this.v_e = p.createVideo(this.dataPath+".mp4");
 		this.v_e.parent(id+'-video-parent');
 		this.v_e.id(id+'-video');
-		this.v_e.size(this.colWidth,"auto"); 
-		
-		
-		
+		this.v_e.size(this.colWidth,"auto");
+
+
+
 		var el = document.getElementById(id+"-video");
 
 		// el.addEventListener('canplaythrough',onLoaded);
 		el.addEventListener('pause',onPaused.bind(this));
 		el.addEventListener('ended',onEnded.bind(this));
-		
+
 
 		this.colWidth = this.v_e.width;
 		this.colHeight = this.v_e.height;
@@ -99,13 +99,13 @@ function Panel(p,id,w,h,yOffset){
 		this.v_e.play();
 
 	}
-	
+
 	this.createCanvas = function(){
 		this.c_p =  p.createDiv("");
 		this.c_p.id(id+'-canvas-parent')
 		this.c_p.width = this.colWidth ;
 		this.c_p.height = this.colHeight ;
-		this.c_p.position(this.colWidth,this.offset);
+		this.c_p.position(this.colWidth+100,this.offset);  //<------------moves graph
 		this.c_p.class("right");
 		this.c_p.class("sub");
 		this.canvas = p.createGraphics(this.colWidth - this.padding, this.colHeight);
@@ -113,11 +113,11 @@ function Panel(p,id,w,h,yOffset){
 		this.canvas.id(id+'-canvas')
 		this.canvas.parent(id+'-canvas-parent');
 	}
-	
+
 	this.createButton = function(){
-		this.button = p.createButton('Play the data');
+		this.button = p.createButton('Play data');
 		//FIXME: Make this dependent on the width of the window
-		this.button.position(0,this.offset+50);		
+		this.button.position(150,this.offset+50);
 		this.button.class("btn");
 	}
 
@@ -137,7 +137,7 @@ function Panel(p,id,w,h,yOffset){
 		// this.heading.style('color','white');
 		this.heading.class('heading');
 		this.heading.style("position","absolute");
-		this.heading.style("left","0px");
+		this.heading.style("left","150px");  //<---------headings
 		this.heading.style("top",textPos.toString()+"px")
 		this.heading.style('width',w);
 		this.heading.style('height',this.colHeight);
@@ -163,7 +163,7 @@ function Panel(p,id,w,h,yOffset){
 
 	this.text = function(){
 
-		//FIXME: Make this dependent on the width of the window 
+		//FIXME: Make this dependent on the width of the window
 		// var textPos = 10 +this.offset;
 		// this.text = p.createP("STEP COUNT : 100" )
 		// this.text = p.createP("HERE IS MY TEST TEXT FOR " + id.toUpperCase())
@@ -212,7 +212,7 @@ function Panel(p,id,w,h,yOffset){
 		if (this.playing) {
 			this.v_e.pause();
 			// this.button.html('play');
-		} 
+		}
 		else {
 			this.v_e.play();
 			// this.button.html('pause');
@@ -224,9 +224,9 @@ function Panel(p,id,w,h,yOffset){
 	// Order of function calls is important
 
 	this.numCols = 2;
-	this.colWidth = w/this.numCols;
+	this.colWidth = (w-300)/this.numCols;  //<---------size of columns
 	//Col height is reset with the video;
-	this.colHeight = h;	
+	this.colHeight = h;
 	this.heading();
 	this.createVideo();
 	this.createCanvas()
@@ -235,7 +235,7 @@ function Panel(p,id,w,h,yOffset){
 	// this.text();
 	this.createButton();
 	p.loadTable(this.dataPath+".csv", ["csv","header"],this.loadData.bind(this));
-	this.button.mousePressed(toggleVid.bind(this)); 
+	this.button.mousePressed(toggleVid.bind(this));
 	// console.log(this.text);
 
 	// DRAWING STUFF
@@ -284,7 +284,7 @@ function Panel(p,id,w,h,yOffset){
 		// this.canvas.fill(237,34,93);
 		// this.canvas.stroke(237,34,93);
 		this.canvas.ellipse(this.data[this.idx].time, this.data[this.idx].y,1,1);
-		
+
 		this.canvas.fill(88,115,165);
 		// this.canvas.fill(237,504,93);
 		// this.canvas.stroke(237,504,93);
@@ -330,7 +330,7 @@ function Panel(p,id,w,h,yOffset){
 
 	return this;
 
-	
+
 }
 
 window.onload = function() {
